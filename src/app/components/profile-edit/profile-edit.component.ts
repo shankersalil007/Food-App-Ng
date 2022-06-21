@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { users } from 'src/app/models/users.model';
+import { SettingsService } from 'src/app/services/settings.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,21 +9,20 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile-edit.component.css'],
 })
 export class ProfileEditComponent implements OnInit {
-  editMode = false;
-  currentUser: users = new users(
-    1,
-    'shan',
-    's',
-    'ss@tcs.com',
-    10,
-    'hai',
-    '',
-    ''
-  );
+  editMode!: boolean;
+  currentUser!: users;
 
-  constructor(private us: UserService) {}
+  constructor(
+    private us: UserService,
+    private settingsService: SettingsService
+  ) {
+    this.editMode = settingsService.editMode;
+  }
 
   ngOnInit(): void {
-    // this.currentUser = this.us.currentUser;
+    this.currentUser = this.us.currentUser;
+    this.settingsService.editModeChanged$.subscribe((resp: boolean) => {
+      this.editMode = resp;
+    });
   }
 }
