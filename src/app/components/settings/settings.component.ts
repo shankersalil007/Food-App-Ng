@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router, Event } from '@angular/router';
 import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
@@ -8,9 +9,25 @@ import { SettingsService } from 'src/app/services/settings.service';
 })
 export class SettingsComponent implements OnInit {
   editMode = false;
-  constructor(private settingsService: SettingsService) {}
+  hideEdit = false;
+  constructor(
+    private settingsService: SettingsService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.router.url);
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        console.log(event.url);
+        if (event.url === '/settings/useraddpaymentdetails') {
+          this.hideEdit = true;
+        } else {
+          this.hideEdit = false;
+        }
+      }
+    });
+  }
 
   onEditClicked() {
     if (this.editMode) {

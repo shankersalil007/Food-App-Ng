@@ -1,1 +1,22 @@
-<p>address works!</p>
+<div class="container">
+  <form *ngIf="!editMode" class="form">
+    <div class="form-group">
+      <label for="name"><h6>Address</h6></label>
+      <div>{{ currentUser.address }}</div>
+    </div>
+  </form>
+
+  <form *ngIf="editMode" class="form">
+    <div class="form-group">
+      <label for="address"><h6>Address</h6></label>
+      <textarea
+        type="text"
+        address="address"
+        id="address"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <input type="submit" value="submit" class="btn mt-2" />
+  </form>
+</div>
