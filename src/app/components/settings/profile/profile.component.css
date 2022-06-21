@@ -1,11 +1,16 @@
 :host {
   width: 30vw;
-  margin: 30px;
+  margin: 0;
+  margin-left: 25px;
 }
 
 img {
   width: 150px;
   height: 150px;
+}
+
+.card {
+  margin: 0;
 }
 
 .center {

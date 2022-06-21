@@ -4,4 +4,33 @@
   height: 80vh;
   margin: 0;
   width: 100%;
+  gap: 0;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+.card {
+  margin: 0;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+/* .crd-name {
+  text-align: center;
+} */
+
+.h5 {
+  text-align: center;
+  margin-bottom: 30px;
 }
