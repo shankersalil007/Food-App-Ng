@@ -9,23 +9,48 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddressComponent } from './components/settings/address/address.component';
 import { ProfileComponent } from './components/settings/profile/profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { AuthGuard } from './services/AuthGuard.service';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'passwordreset', component: PasswordResetComponent},
-  {path: 'settings', component: SettingsComponent},
-  {path: 'settings/userprofile', component: ProfileComponent},
-  {path: 'settings/useraddaddress', component: AddressComponent},
-  {path: 'settings/useraddpaymentdetails', component: AddressComponent},
-  {path: 'confirmorder', component: ConfirmOrderComponent},
-  {path: 'placeorder', component: OrderTrackComponent}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'passwordreset', component: PasswordResetComponent },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  {
+    path: 'settings/userprofile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'settings/useraddaddress',
+    component: AddressComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'settings/useraddpaymentdetails',
+    component: AddressComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'confirmorder',
+    component: ConfirmOrderComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'placeorder',
+    component: OrderTrackComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

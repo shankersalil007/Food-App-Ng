@@ -1,15 +1,23 @@
 export class users {
-  id: number;
+  id?: number;
   fname: string;
-  lname: string;
+  lname?: string;
   email: string;
-  phone: number;
+  phone?: number;
   password: string;
-  address: string;
-  payment: string;
+  address?: string;
+  payment?: string;
 
-  constructor(id: number, fname: string, lname: string, email: string, phone: number, password: string, address: string, payment: string)
-  {
+  constructor(
+    id: number,
+    fname: string,
+    lname: string,
+    email: string,
+    phone: number,
+    password: string,
+    address: string,
+    payment: string
+  ) {
     this.id = id;
     this.fname = fname;
     this.lname = lname;
