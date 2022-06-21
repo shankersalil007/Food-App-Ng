@@ -1,14 +1,15 @@
-.card{
-  border-width: 2px;
-  border: black;
+.our-card {
   width: 500px;
   padding: 40px;
-  position: absolute;
-  /* top: 50%; */
-  left: 25%;
-  /* transform: translate(-50%, 50%); */
 }
 
 a:hover {
-  cursor:pointer;
- }
+  cursor: pointer;
+}
+
+.container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
