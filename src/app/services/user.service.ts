@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { users } from '../models/users.model';
 
 @Injectable({
@@ -11,6 +12,7 @@ export class UserService {
   constructor() {}
 
   setCurrentUser(user: users) {
+    console.log(user);
     this.currentUser = user;
     this.isUserLoggedIn = true;
   }
