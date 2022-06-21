@@ -17,6 +17,8 @@ import { AddressComponent } from './components/settings/address/address.componen
 import { PaymentComponent } from './components/settings/payment/payment.component';
 import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 import { OrderTrackComponent } from './components/order-track/order-track.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { PaymentEditComponent } from './components/payment-edit/payment-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { OrderTrackComponent } from './components/order-track/order-track.compon
     AddressComponent,
     PaymentComponent,
     ConfirmOrderComponent,
-    OrderTrackComponent
+    OrderTrackComponent,
+    ProfileEditComponent,
+    PaymentEditComponent
   ],
   imports: [
     BrowserModule,

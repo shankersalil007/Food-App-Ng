@@ -6,16 +6,19 @@
     <hr />
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"
+        <a class="nav-link active" aria-current="page" routerLink="userprofile"
           >View/Update Profile</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Add/Update Address</a>
+        <a class="nav-link" routerLink="useraddaddress">Add/Update Address</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Add/Update Payment Details</a>
+        <a class="nav-link" routerLink="useraddpaymentdetails"
+          >Add/Update Payment Details</a
+        >
       </li>
     </ul>
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -21,13 +21,13 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
+    // return true;
     if (this.userService.isUserLoggedIn) {
       return true;
     } else {
       this.router.navigate(['login']);
       return false;
     }
-    // return true;
   }
 
   constructor(private userService: UserService, private router: Router) {}

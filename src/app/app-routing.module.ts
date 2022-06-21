@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { OrderTrackComponent } from './components/order-track/order-track.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { PaymentEditComponent } from './components/payment-edit/payment-edit.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddressComponent } from './components/settings/address/address.component';
 import { ProfileComponent } from './components/settings/profile/profile.component';
@@ -17,22 +19,29 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'passwordreset', component: PasswordResetComponent },
-  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
   {
-    path: 'settings/userprofile',
-    component: ProfileComponent,
+    path: 'settings',
+    component: SettingsComponent,
     canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'userprofile',
+        component: ProfileEditComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'useraddaddress',
+        component: AddressComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'useraddpaymentdetails',
+        component: PaymentEditComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
   },
-  {
-    path: 'settings/useraddaddress',
-    component: AddressComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'settings/useraddpaymentdetails',
-    component: AddressComponent,
-    canActivate: [AuthGuard],
-  },
+
   {
     path: 'confirmorder',
     component: ConfirmOrderComponent,
@@ -43,10 +52,10 @@ const routes: Routes = [
     component: OrderTrackComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: '**',
-    redirectTo: 'login',
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'login',
+  // },
 ];
 
 @NgModule({
