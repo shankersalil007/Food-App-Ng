@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { users, Address } from '../models/users.model';
+import { pipe, Subject, tap } from 'rxjs';
+import { users, Address, Payment } from '../models/users.model';
 
 @Injectable({
   providedIn: 'root',
@@ -71,5 +71,20 @@ export class UserService {
         this.currentUser = newUser;
         this.userUpdated$.next(true);
       });
+  }
+
+  updateUserPayment(value: Payment) {
+    const newUser: users = {
+      ...this.currentUser,
+      payment: [value],
+    };
+    return this.http
+      .put('http://localhost:3000/users/' + this.currentUser.id, newUser)
+      .pipe(
+        tap(() => {
+          this.currentUser = newUser;
+          this.userUpdated$.next(true);
+        })
+      );
   }
 }

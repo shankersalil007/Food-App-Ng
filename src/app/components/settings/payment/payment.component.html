@@ -1,6 +1,6 @@
 <div class="ctnr d-flex">
   <div>
-    <form *ngIf="editMode">
+    <form *ngIf="editMode" [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
         <input
@@ -8,6 +8,8 @@
           class="form-control"
           id="name"
           placeholder="Enter your name"
+          disabled
+          [value]="this.currentUser.fname + ' ' + this.currentUser.lname"
         />
       </div>
 
@@ -19,6 +21,7 @@
             class="form-control"
             id="cred"
             placeholder="0000 0000 0000 0000"
+            formControlName="cred"
           />
         </div>
       </div>
@@ -26,24 +29,47 @@
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="month">Month</label>
-          <select name="month" id="month" class="form-control">
-            <option *ngFor="let month of months">{{ month }}</option>
+          <select
+            name="month"
+            id="month"
+            class="form-control"
+            formControlName="month"
+          >
+            <option *ngFor="let month of months" value="month">
+              {{ month }}
+            </option>
           </select>
         </div>
         <div class="form-group col-md-4">
           <label for="year">Year</label>
-          <select name="year" id="year" class="form-control">
-            <option *ngFor="let year of years">{{ year }}</option>
+          <select
+            name="year"
+            id="year"
+            class="form-control"
+            formControlName="year"
+          >
+            <option *ngFor="let year of years" value="year">{{ year }}</option>
           </select>
         </div>
         <div class="form-group col-md-4">
           <label for="year">CVV/CVC</label>
-          <input type="text" name="cvv" class="form-control" />
+          <input
+            type="number"
+            name="cvv"
+            formControlName="cvv"
+            class="form-control"
+          />
         </div>
       </div>
 
-      <button type="submit" class="btn btn-success mr-3">Add</button>
-      <button class="btn btn-danger">Reset</button>
+      <button
+        type="submit"
+        class="btn btn-success mr-3"
+        [disabled]="!paymentForm.valid || !paymentForm.dirty"
+      >
+        Add
+      </button>
+      <span (click)="resetForm()" class="btn btn-danger">Reset</span>
     </form>
   </div>
   <div class="icon" [ngClass]="{ editmode: editMode }">

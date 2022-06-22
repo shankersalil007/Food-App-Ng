@@ -6,7 +6,7 @@ export class users {
   phone?: number;
   password: string;
   address?: Address[];
-  payment?: string;
+  payment?: Payment[];
 
   constructor(id: number, fname: string, email: string, password: string) {
     this.id = id;
@@ -21,4 +21,11 @@ export interface Address {
   city: string;
   state: string;
   landmark: string;
+}
+
+export interface Payment {
+  cred: number;
+  month: number;
+  year: number;
+  cvv: number;
 }
