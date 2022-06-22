@@ -47,5 +47,6 @@ export class ProfileEditComponent implements OnInit {
   onSubmit() {
     this.us.updateUserProfile(this.profileForm.value);
     this.settingsService.editModeChanged$.next(false);
+    this.settingsService.endEdit();
   }
 }
