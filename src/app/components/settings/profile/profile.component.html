@@ -10,9 +10,13 @@
     {{ currUser.fname }} {{ currUser.lname }}
   </h5>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Profile</li>
-    <li class="list-group-item">Address</li>
-    <li class="list-group-item">Payment Details</li>
-    <li class="list-group-item">Go To Home Page</li>
+    <li class="list-group-item">
+      <a routerLink="userprofile">Profile</a>
+    </li>
+    <li class="list-group-item"><a routerLink="useraddaddress">Address</a></li>
+    <li class="list-group-item">
+      <a routerLink="useraddpaymentdetails">Payment Details</a>
+    </li>
+    <li class="list-group-item"><a routerLink="/home">Go To Home Page</a></li>
   </ul>
 </div>

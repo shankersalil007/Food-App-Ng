@@ -11,6 +11,16 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileEditComponent implements OnInit {
   editMode!: boolean;
   currentUser!: users;
+  // currentUser = new users(
+  //   1,
+  //   'shanker',
+  //   'salil',
+  //   'shanker@tcs.com',
+  //   0,
+  //   '',
+  //   '',
+  //   ''
+  // );
 
   constructor(
     private us: UserService,
