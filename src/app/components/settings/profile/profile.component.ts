@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   constructor(private us: UserService) {}
 
   ngOnInit(): void {
+    this.us.autoLogin();
     this.currUser = this.us.currentUser;
   }
 }

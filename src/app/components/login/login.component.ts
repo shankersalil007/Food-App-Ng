@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         return curren_user;
       });
       if (user) {
-        alert('Login success');
+        // alert('Login success');
         this.loginForm.reset();
         this.router.navigate(['home']);
         const curren_user = new users(
@@ -54,8 +54,6 @@ export class LoginComponent implements OnInit {
         curren_user.phone = user.phone;
         curren_user.address = user.address;
         curren_user.payment = user.payment;
-
-        console.log(curren_user);
         this.userService.setCurrentUser(curren_user);
       } else {
         alert('User not found');

@@ -17,6 +17,9 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.router.url);
+    if (this.router.url === '/settings/useraddpaymentdetails') {
+      this.hideEdit = true;
+    }
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         console.log(event.url);

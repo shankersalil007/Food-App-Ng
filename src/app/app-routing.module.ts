@@ -9,6 +9,7 @@ import { PaymentEditComponent } from './components/payment-edit/payment-edit.com
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddressComponent } from './components/settings/address/address.component';
+import { PaymentComponent } from './components/settings/payment/payment.component';
 import { ProfileComponent } from './components/settings/profile/profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AuthGuard } from './services/AuthGuard.service';
@@ -41,7 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'useraddpaymentdetails',
-        component: PaymentEditComponent,
+        component: PaymentComponent,
         canActivate: [AuthGuard],
       },
     ],

@@ -1,1 +1,67 @@
-<p>payment works!</p>
+<div class="ctnr d-flex">
+  <div>
+    <form *ngIf="editMode">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="name"
+          class="form-control"
+          id="name"
+          placeholder="Enter your name"
+        />
+      </div>
+
+      <div class="form-group">
+        <div class="form-row col-md-8 m-0 p-0">
+          <label for="cred">Credit Card Number</label>
+          <input
+            type="number"
+            class="form-control"
+            id="cred"
+            placeholder="0000 0000 0000 0000"
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="month">Month</label>
+          <select name="month" id="month" class="form-control">
+            <option *ngFor="let month of months">{{ month }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="year">Year</label>
+          <select name="year" id="year" class="form-control">
+            <option *ngFor="let year of years">{{ year }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="year">CVV/CVC</label>
+          <input type="text" name="cvv" class="form-control" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success mr-3">Add</button>
+      <button class="btn btn-danger">Reset</button>
+    </form>
+  </div>
+  <div class="icon" [ngClass]="{ editmode: editMode }">
+    <svg
+      (click)="toggleEditMode()"
+      xmlns="http://www.w3.org/2000/svg"
+      width="8rem"
+      height="8rem"
+      fill="currentColor"
+      class="bi bi-credit-card"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"
+      />
+      <path
+        d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"
+      />
+    </svg>
+  </div>
+</div>

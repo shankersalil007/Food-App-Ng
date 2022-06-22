@@ -1,0 +1,16 @@
+.ctnr {
+  /* padding: 10px;
+  border: 1px solid grey; */
+}
+form {
+  padding: 10px;
+}
+
+svg {
+  cursor: pointer;
+}
+
+.icon.editmode {
+  padding-left: 50px;
+  padding-top: 50px;
+}
