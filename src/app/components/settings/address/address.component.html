@@ -18,24 +18,58 @@
     </div>
   </form>
 
-  <form *ngIf="editMode" class="form">
+  <form
+    *ngIf="editMode"
+    class="form"
+    [formGroup]="addressForm"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="form-group">
       <label for="houseno"><h6>House no</h6></label>
-      <input type="text" name="houseno" id="houseno" class="form-control" />
+      <input
+        type="text"
+        name="houseno"
+        id="houseno"
+        class="form-control"
+        formControlName="houseno"
+      />
     </div>
     <div class="form-group">
       <label for="city"><h6>City</h6></label>
-      <input type="text" name="city" id="city" class="form-control" />
+      <input
+        type="text"
+        name="city"
+        id="city"
+        class="form-control"
+        formControlName="city"
+      />
     </div>
     <div class="form-group">
       <label for="state"><h6>State</h6></label>
-      <input type="text" name="state" id="state" class="form-control" />
+      <input
+        type="text"
+        name="state"
+        id="state"
+        class="form-control"
+        formControlName="state"
+      />
     </div>
     <div class="form-group">
       <label for="landmark"><h6>Landmark</h6></label>
-      <input type="text" name="landmark" id="landmark" class="form-control" />
+      <input
+        type="text"
+        name="landmark"
+        id="landmark"
+        class="form-control"
+        formControlName="landmark"
+      />
     </div>
 
-    <input type="submit" value="submit" class="btn mt-2" />
+    <input
+      type="submit"
+      value="submit"
+      class="btn mt-2"
+      [disabled]="!addressForm.valid || !addressForm.dirty"
+    />
   </form>
 </div>

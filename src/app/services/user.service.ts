@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { users } from '../models/users.model';
+import { users, Address } from '../models/users.model';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +51,19 @@ export class UserService {
       lname: value.lname,
       email: value.email,
       password: value.password,
+    };
+    this.http
+      .put('http://localhost:3000/users/' + this.currentUser.id, newUser)
+      .subscribe(() => {
+        this.currentUser = newUser;
+        this.userUpdated$.next(true);
+      });
+  }
+
+  updateUserAddress(value: Address) {
+    const newUser: users = {
+      ...this.currentUser,
+      address: [value],
     };
     this.http
       .put('http://localhost:3000/users/' + this.currentUser.id, newUser)
