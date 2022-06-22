@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { users } from 'src/app/models/users.model';
+import { users, Address } from 'src/app/models/users.model';
 import { SettingsService } from 'src/app/services/settings.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,16 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileEditComponent implements OnInit {
   editMode!: boolean;
   currentUser!: users;
-  // currentUser = new users(
-  //   1,
-  //   'shanker',
-  //   'salil',
-  //   'shanker@tcs.com',
-  //   0,
-  //   '',
-  //   '',
-  //   ''
-  // );
+  // currentUser = new users(1, 'sherin', 'sherin@tcs.com', '');
 
   constructor(
     private us: UserService,

@@ -1,6 +1,4 @@
-import { useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { users } from 'src/app/models/users.model';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  currUser: users = new users(0, '', '', '', 0, '', '', '');
+  currUser: users = new users(1, 'sherin', 'sherin@tcs.com', '');
 
   constructor(private us: UserService) {}
 

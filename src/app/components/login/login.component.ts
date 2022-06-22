@@ -47,13 +47,14 @@ export class LoginComponent implements OnInit {
         const curren_user = new users(
           user.id,
           user.fname,
-          user.lname,
           user.email,
-          user.phone,
-          user.password,
-          user.address,
-          user.payment
+          user.password
         );
+        curren_user.lname = user.lname;
+        curren_user.phone = user.phone;
+        curren_user.address = user.address;
+        curren_user.payment = user.payment;
+
         console.log(curren_user);
         this.userService.setCurrentUser(curren_user);
       } else {

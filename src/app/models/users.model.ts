@@ -1,30 +1,24 @@
 export class users {
-  id?: number;
+  id: number;
   fname: string;
   lname?: string;
   email: string;
   phone?: number;
   password: string;
-  address?: string;
+  address?: Address[];
   payment?: string;
 
-  constructor(
-    id: number,
-    fname: string,
-    lname: string,
-    email: string,
-    phone: number,
-    password: string,
-    address: string,
-    payment: string
-  ) {
+  constructor(id: number, fname: string, email: string, password: string) {
     this.id = id;
     this.fname = fname;
-    this.lname = lname;
     this.email = email;
-    this.phone = phone;
     this.password = password;
-    this.address = address;
-    this.payment = payment;
   }
+}
+
+export interface Address {
+  houseno: number;
+  city: string;
+  state: string;
+  landmark: string;
 }
