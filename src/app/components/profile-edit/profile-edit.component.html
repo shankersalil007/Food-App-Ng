@@ -14,18 +14,41 @@
     </div>
   </form>
 
-  <form *ngIf="editMode" class="form">
+  <form
+    *ngIf="editMode"
+    class="form"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="profileForm"
+  >
     <div class="form-group">
       <label for="name"><h6>Name</h6></label>
-      <input type="text" name="name" id="name" class="form-control" />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        formControlName="name"
+      />
     </div>
     <div class="form-group">
       <label for="lname"><h6>Last Name</h6></label>
-      <input type="text" name="lname" id="lname" class="form-control" />
+      <input
+        type="text"
+        name="lname"
+        id="lname"
+        class="form-control"
+        formControlName="lname"
+      />
     </div>
     <div class="form-group">
       <label for="email"><h6>Email address</h6></label>
-      <input type="email" name="email" id="email" class="form-control" />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        formControlName="email"
+      />
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -34,8 +57,14 @@
         name="password"
         id="password"
         class="form-control"
+        formControlName="password"
       />
     </div>
-    <input type="submit" value="submit" class="btn mt-2" />
+    <input
+      type="submit"
+      value="submit"
+      class="btn mt-2"
+      [disabled]="!profileForm.valid || !profileForm.dirty"
+    />
   </form>
 </div>

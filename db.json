@@ -7,8 +7,12 @@
       "email": "harry@gmail.com",
       "phone": 8712903745,
       "password": "harry12",
-      "address": [{}],
-      "payment": [{}]
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
     },
     {
       "id": 2,
@@ -17,8 +21,12 @@
       "email": "lara@yahoo.com",
       "phone": 9123456708,
       "password": "lara098",
-      "address": [{}],
-      "payment": [{}]
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
     },
     {
       "id": 3,
@@ -27,8 +35,12 @@
       "phone": 7639082367,
       "email": "bella@gmail.com",
       "password": "323bella",
-      "address": [{}],
-      "payment": [{}]
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
     },
     {
       "id": 4,
@@ -37,8 +49,12 @@
       "phone": 1234567889,
       "email": "edward@gmail.com",
       "password": "edward123",
-      "address": [{}],
-      "payment": [{}]
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
     },
     {
       "fname": "Sherin",
@@ -48,11 +64,11 @@
       "id": 5
     },
     {
+      "id": 6,
       "fname": "SHANKER",
-      "lname": "SALIL",
       "email": "shankersalil8@gmail.com",
       "password": "shanker",
-      "id": 6,
+      "lname": "SALIL",
       "address": [
         {
           "houseno": 10,

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { users } from '../models/users.model';
@@ -6,6 +7,10 @@ import { users } from '../models/users.model';
   providedIn: 'root',
 })
 export class UserService {
+  constructor(private http: HttpClient) {}
+
+  userUpdated$ = new Subject<boolean>();
+
   currentUser!: users;
   isUserLoggedIn() {
     if (localStorage.getItem('user')) {
@@ -14,7 +19,6 @@ export class UserService {
       return false;
     }
   }
-  constructor() {}
 
   setCurrentUser(user: users) {
     console.log(user);
@@ -33,5 +37,26 @@ export class UserService {
 
   removeUser() {
     localStorage.removeItem('user');
+  }
+
+  updateUserProfile(value: {
+    name: string;
+    lname: string;
+    email: string;
+    password: string;
+  }) {
+    const newUser = {
+      ...this.currentUser,
+      fname: value.name,
+      lname: value.lname,
+      email: value.email,
+      password: value.password,
+    };
+    this.http
+      .put('http://localhost:3000/users/' + this.currentUser.id, newUser)
+      .subscribe(() => {
+        this.currentUser = newUser;
+        this.userUpdated$.next(true);
+      });
   }
 }

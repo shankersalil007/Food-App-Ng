@@ -15,5 +15,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.us.autoLogin();
     this.currUser = this.us.currentUser;
+    this.us.userUpdated$.subscribe(() => {
+      this.currUser = this.us.currentUser;
+    });
   }
 }

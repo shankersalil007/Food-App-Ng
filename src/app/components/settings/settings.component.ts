@@ -30,6 +30,9 @@ export class SettingsComponent implements OnInit {
         }
       }
     });
+    this.settingsService.editModeChanged$.subscribe((resp: boolean) => {
+      this.editMode = resp;
+    });
   }
 
   onEditClicked() {
